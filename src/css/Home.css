@@ -1,0 +1,188 @@
+/* =========================
+   Home Page Styles
+========================= */
+
+.home {
+  padding: 2rem 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #141414; /* Netflix-style dark background */
+  color: #fff;
+}
+
+.search-form {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #1c1c1c;
+  color: white;
+  font-size: 1rem;
+  transition: box-shadow 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #e50914; /* Netflix red focus */
+}
+
+.search-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #e50914; /* Netflix red */
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.2s;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #f6121d;
+  transform: scale(1.05);
+}
+
+/* =========================
+   Movies Grid
+========================= */
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile-first */
+  gap: 12px;
+  padding: 0 1rem 2rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 480px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .movies-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+    gap: 20px;
+  }
+}
+
+/* =========================
+   Movie Card Hover & Shadow
+========================= */
+
+.movie-card {
+  background-color: #1c1c1c;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Movie overlay for favorite button */
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0.5rem;
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+.favorite-btn {
+  color: white;
+  font-size: 1.3rem;
+  background-color: rgba(0,0,0,0.5);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.favorite-btn:hover {
+  background-color: rgba(255,0,0,0.8);
+  transform: scale(1.1);
+}
+
+.favorite-btn.active {
+  color: #e50914;
+}
+
+/* =========================
+   Typography inside MovieCard
+========================= */
+
+.movie-info h3 {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.movie-info p {
+  font-size: 0.85rem;
+  color: #bbb;
+}
+
+/* =========================
+   Mobile Adjustments
+========================= */
+
+@media (max-width: 480px) {
+  .home {
+    padding: 1rem 0;
+  }
+
+  .search-form {
+    margin-bottom: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .search-button {
+    width: 100%;
+    padding: 0.65rem;
+  }
+
+  .movie-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .movie-info p {
+    font-size: 0.75rem;
+  }
+}
